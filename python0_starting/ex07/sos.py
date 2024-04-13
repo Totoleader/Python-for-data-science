@@ -12,14 +12,15 @@ def string_to_morse(string: str):
         '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....',
         '6': '-....', '7': '--...', '8': '---..', '9': '----.', ' ': '/',
     }
+    string = string.upper()
     output_string = ""
-
     for letter in string:
         if letter.isalnum() or letter == " ":
             output_string += f"{morse_code_dict[letter]} "
         else:
             raise AssertionError("the arguments are bad")
     print(output_string)
+    
 
 def main():
     try:
@@ -28,7 +29,7 @@ def main():
         else:
             string_to_morse(sys.argv[1])
     except AssertionError as e:
-        print("AssertionError: {e}")
+        print(f"AssertionError: {e}")
 
 if __name__ == "__main__":
     main()
